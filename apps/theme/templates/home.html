@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<a href="{% url 'orders:orders_list' %}">List of orders</a><br>
+<a href="{% url 'orders:order_export' %}">Export orders in JSON</a><br>
+
+{% endblock %}

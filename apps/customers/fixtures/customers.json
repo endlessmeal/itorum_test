@@ -1,0 +1,62 @@
+[
+  {
+    "model": "customers.Customer",
+    "fields": {
+      "name": "Alex"
+    }
+  },
+  {
+    "model": "customers.Customer",
+    "fields": {
+      "name": "Vlad"
+    }
+  },
+  {
+    "model": "customers.Customer",
+    "fields": {
+      "name": "Misha"
+    }
+  },
+  {
+    "model": "customers.Customer",
+    "fields": {
+      "name": "Gleb"
+    }
+  },
+  {
+    "model": "customers.Customer",
+    "fields": {
+      "name": "Natasha"
+    }
+  },
+  {
+    "model": "customers.Customer",
+    "fields": {
+      "name": "Alyona"
+    }
+  },
+  {
+    "model": "customers.Customer",
+    "fields": {
+      "name": "Nastya"
+    }
+  },
+  {
+    "model": "customers.Customer",
+    "fields": {
+      "name": "Maria"
+    }
+  },
+  {
+    "model": "customers.Customer",
+    "fields": {
+      "name": "Nina"
+    }
+  },
+  {
+    "model": "customers.Customer",
+    "fields": {
+      "name": "Jack"
+    }
+  }
+]

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2><a href="{% url 'orders:orders_list' %}">List of orders</a></h2>
+
+<table>
+  <colgroup>
+    <col span="2" style="background:Khaki">
+    <col style="background-color:LightCyan">
+  </colgroup>
+  <tr>
+    <th>Name</th>
+    <th>Amount</th>
+    <th>Date</th>
+    <th>Actions</th>
+  </tr>
+  {% for order in object_list %}
+    <tr>
+        <td>{{ order.customer.name }}</td>
+        <td>{{ order.amount }}</td>
+        <td>{{ order.date }}</td>
+        <td><a href="{% url 'orders:order_edit' order.id %}">edit</a> <a href="{% url 'orders:order_delete' order.id %}">delete</a></td>
+    </tr>
+  {% endfor %}
+</table>
+
+<a href="{% url 'orders:order_new' %}">Add</a>
+
+{% endblock %}
