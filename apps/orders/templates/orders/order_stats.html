@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2><a href="{% url 'orders:orders_list' %}">Stats of orders</a></h2>
+
+<table>
+  <colgroup>
+    <col span="2" style="background:Khaki">
+    <col style="background-color:LightCyan">
+  </colgroup>
+  <tr>
+    <th>Date</th>
+    <th>Number of Customers</th>
+    <th>Amount</th>
+  </tr>
+  {% for stat in object_list %}
+    <tr>
+        <td>{{ stat.day }}</td>
+        <td>{{ stat.customs }}</td>
+        <td>{{ stat.sum }}</td>
+    </tr>
+  {% endfor %}
+</table>
+
+
+{% endblock %}

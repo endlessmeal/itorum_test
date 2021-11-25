@@ -1,9 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.forms import ModelForm
 from django.http import JsonResponse
+from django.db.models.functions import TruncDay
+from django.db.models import Sum, Count
+
 
 from .models import Order
 from .decorators import basicauth
+
 
 class OrderForm(ModelForm):
     class Meta:
@@ -48,3 +52,15 @@ def export_orders(request):
     result = {'result': list(orders)}
     return JsonResponse(result)
 
+
+def order_stats(request, template_name='orders/order_stats.html'):
+    orders = Order.objects\
+        .annotate(day=TruncDay('date'))\
+        .values('day')\
+        .annotate(sum=Sum('amount'))\
+        .values('day', 'sum')\
+        .annotate(customs=Count('customer__name'))\
+        .values('day', 'sum', 'customs')\
+
+    result = {'object_list': list(orders)}
+    return render(request, template_name, result)
