@@ -1,10 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.forms import ModelForm
-from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 
 from .models import Order
-
+from .decorators import basicauth
 
 class OrderForm(ModelForm):
     class Meta:
@@ -43,7 +42,7 @@ def order_delete(request, pk, template_name='orders/order_confirm_delete.html'):
     return render(request, template_name, {'object': order})
 
 
-@login_required
+@basicauth
 def export_orders(request):
     orders = Order.objects.all().values('customer', 'amount', 'date')
     result = {'result': list(orders)}
